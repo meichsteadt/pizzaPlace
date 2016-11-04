@@ -2,3 +2,11 @@ body {
   font-family: monospace;
   text-align: center;
 }
+
+.form-group {
+  margin: 20px 0;
+}
+
+.check {
+  margin-left: 4px;
+}

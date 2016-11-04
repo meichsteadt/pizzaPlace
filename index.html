@@ -20,18 +20,67 @@
         <div class="col-md-12">
           <div class="jumbotron text-center">
             <h1>Pizza Place</h1>
-            <form>
-              <div class="form-group">
-                <label for="userInput">Put in your number</label>
-                <input type="text" id="userInput">
-                <button id="submitButton" class="btn btn-large btn-default" type="submit">Submit</button>
-              </div>
-            </form>
           </div>
         </div>
-        <div class="col-md-12 outline">
-          <ul id="outputToUser"></ul>
+      </div>
+      <form>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-1 text-left">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input id="address" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input id="city" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <input id="state" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label for="zip">Zip Code</label>
+              <input id="zip" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <label for="size">Size</label>
+              <select class="form-control" id="size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="size">Sauce</label>
+              <select class="form-control" id="sauce">
+                <option value="Marinara">Marinara</option>
+                <option value="Garlic Parmesean">Garlic Parmesean</option>
+                <option value="Pesto">Pesto</option>
+              </select>
+            </div>
+            <div class="form-group text-left">
+              <h5>Choose your toppings</h5>
+              <input type="checkbox" name="toppings" value="Cheese"><span class="check">Cheese</span><br>
+              <input type="checkbox" name="toppings" value="Pepperoni"><span class="check">Pepperoni</span><br>
+              <input type="checkbox" name="toppings" value="Bacon"><span class="check">Bacon</span><br>
+              <input type="checkbox" name="toppings" value="Sausage"><span class="check">Sausage</span><br>
+              <input type="checkbox" name="toppings" value="Pineapple" disabled><span class="check">Pineapple</span><br>
+              <input type="checkbox" name="toppings" value="Chicken"><span class="check">Chicken</span><br>
+              <input type="checkbox" name="toppings" value="Vegetables"><span class="check">Vegetables</span><br>
+              <input type="checkbox" name="toppings" value="Canadian Bacon"><span class="check">Canadian Bacon</span><br>
+              <input type="checkbox" name="toppings" value="Avacado"><span class="check">Avacado</span><br>
+            </div>
+            <button type="submit" class="btn btn-default" name="button">Add to Order</button>
+            <button id="checkoutButton" type="button" class="btn btn-default" name="checkout">Checkout</button>
+          </div>
         </div>
+      </form>
+      <div class="col-md-12 outline">
+        <ul id="outputToUser"></ul>
       </div>
     </div>
   </body>
