@@ -17,13 +17,23 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="jumbotron text-center">
-            <h1>Pizza Place</h1>
-          </div>
+        <header class="col-md-12 text-center">
+            <img src="img/logo.png" class="logo-header logo">
+          <h2 class="headline">Readymade Organic Artisan Pizza</h2>
+        </header>
+      </div>
+      <div class="row intro">
+        <div class="col-md-10 col-md-offset-1">
+          <p>Readymade Organic Artisan Cupcakes, the company you've known and loved since week 1 is now doing pizza! ROA Pizza maintains the hipster tradition ROA Cupcakes started almost 4 whole weeks ago, with our products being free of gluten, fillers, GMO's, and plutonium. Come by our new location. If you don't know where it is, it's probably because we're keeping it pretty lowkey.</p>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <img src="img/outside.jpg" class="img-responsive shadow" alt="hipster pizza">
         </div>
       </div>
       <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2 class="headline">Online Ordering</h2>
+        </div>
         <div class="col-md-6 col-md-offset-1 text-left">
           <form id="orderForm">
             <h2 class="text-center">Create your Pizza</h2>
@@ -61,23 +71,23 @@
             <h2 class="text-center">Delivery Address</h2>
             <div class="form-group">
               <label for="name">Name</label>
-              <input id="name" class="form-control" type="text">
+              <input id="name" class="form-control" type="text" required>
             </div>
             <div class="form-group">
               <label for="address">Address</label>
-              <input id="address" class="form-control" type="text">
+              <input id="address" class="form-control" type="text" required>
             </div>
             <div class="form-group">
               <label for="city">City</label>
-              <input id="city" class="form-control" type="text">
+              <input id="city" class="form-control" type="text" required>
             </div>
             <div class="form-group">
               <label for="state">State</label>
-              <input id="state" class="form-control" type="text">
+              <input id="state" class="form-control" type="text" required>
             </div>
             <div class="form-group">
               <label for="zip">Zip Code</label>
-              <input id="zip" class="form-control" type="text">
+              <input id="zip" class="form-control" type="text" required>
             </div>
             <input id="secondAddress"type="checkbox" name="secondAddress" value="true"><span class="check">Click here if billing address is different than delivery address</span><br>
             <br>
@@ -107,7 +117,7 @@
             <h2 class="text-center">Payment Information</h2>
             <div class="form-group">
               <label for="cardName">Name on Card</label>
-              <input id="cardName" class="form-control" type="text">
+              <input id="cardName" class="form-control" type="text" required>
             </div>
             <div class="form-group">
               <label for="cardType">Card Type</label>
@@ -119,13 +129,15 @@
             </div>
             <div class="form-group">
               <label for="cardNumber">Card Number</label>
-              <input id="cardNumber" class="form-control" type="text">
+              <input id="cardNumber" class="form-control" type="text" minlength="16" maxlength="16" required>
+              <p class="cardNumberError"></p>
             </div>
             <div class="form-group">
               <div class="row">
                 <div class="col-sm-4">
                   <label for="securityNumber">Security Number</label>
-                  <input id="securityNumber" class="form-control" type="text">
+                  <input id="securityNumber" class="form-control" type="text" minlength="3" maxlength="3" required>
+                  <p class="securityNumberError"></p>
                 </div>
               </div>
               <div class="what text-muted">
@@ -141,7 +153,6 @@
         <div class="col-md-4 col-md-offset-1">
           <div id="displayOrder" class="">
             <h3>Your Order</h3>
-            <div class="underline"></div>
             <ul class="order" class="text-left"></ul>
             <div class="thin"></div>
             <p class="total"></p>
@@ -152,7 +163,7 @@
       <div class="row">
         <div id="confirmation" class="col-md-8 col-md-offset-2">
           <h1>Thank you for choosing ROA Pizza</h1>
-          <h2>Your order has been placed and is being made right now by one of our organic, artisan chefs.</h2>
+          <h4>Your order has been placed and is being made right now by one of our <em>organic, artisan</em> chefs.</h4>
           <div class="well">
             <h3>Your Order</h3>
             <div class="underline"></div>
@@ -163,6 +174,15 @@
             <div class="thin"></div>
             <p class="total"></p>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <footer>
+            <p>Copyright&copy; ROA Cupcakes Inc. 2016</p>
+          </footer>
         </div>
       </div>
     </div>

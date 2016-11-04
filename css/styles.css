@@ -1,10 +1,12 @@
 body {
   font-family: monospace;
   text-align: center;
+  font-size: 16px;
 }
 
-h2 {
+h1, h2, h3 {
   color: #f7b705;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
 em {
@@ -14,6 +16,31 @@ em {
 ul {
   list-style: none;
 }
+
+.headline{
+  font-weight: 300;
+  font-size: 30px;
+  border-bottom: 3px black solid;
+  border-top: 3px black solid;
+  color: #000;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+.shadow {
+  box-shadow: 5px 4px 4px rgba(0,0,0,.6);
+}
+.intro {
+  text-align: justify;
+  margin-bottom: 100px;
+}
+.intro p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
 .form-group {
   margin: 20px 0;
 }
@@ -23,17 +50,17 @@ ul {
 }
 
 .underline {
-  border-bottom: 2px solid #f7b705;
+  border-bottom: 1px solid black;
   width: 70%;
   margin: 10px auto;
 }
 
-#displayOrder {
-  margin-top: 60px;
+#orderForm {
+  margin-top: 80px;
 }
 
-#order {
-  margin-left: 20px;
+#displayOrder {
+  margin-top: 80px;
 }
 
 #confirmation ul {
@@ -88,4 +115,8 @@ ul {
 .what>p:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+footer {
+  margin-top: 50px;
 }
