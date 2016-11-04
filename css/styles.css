@@ -10,3 +10,13 @@ body {
 .check {
   margin-left: 4px;
 }
+
+.underline {
+  border-bottom: 2px solid black;
+  width: 70%;
+  margin: 10px auto;
+}
+
+#displayOrder {
+  margin-top: 20px;
+}

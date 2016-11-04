@@ -73,33 +73,41 @@ luke.getTotal();
 
 
 $(function(){
+  var order = [];
   $('form').submit(function(event){
     event.preventDefault();
+    var size = $('#size').val();
+    var sauce = $('#sauce').val();
+    var toppings = [];
+    var extra = false;
+    $("input:checkbox[name=toppings]:checked").each(function(){
+      toppings.push($(this).val());
+    });
+    if(toppings.length > 3) {
+      extra = true;
+    }
+    order.push(new Pizza(size, toppings, sauce, extra));
+    console.log(order);
+    reset();
+  })
+  $('#checkoutButton').click(function() {
+    $('form').hide();
+    $('#checkout').show();
     var name = $('input#name').val();
     var address = $('input#address').val();
     var city = $('input#city').val();
     var state = $('input#state').val();
     var zip = $('input#zip').val();
-    var size = $('#size').val();
-    var sauce = $('#sauce').val();
-    var toppings = [];
-    $("input:checkbox[name=toppings]:checked").each(function(){
-      toppings.push($(this).val());
-    });
-    console.log(name, address, city, state, zip);
-  })
-  $('#checkoutButton').click(function() {
-    $('form').hide();
-    $('#checkout').show();
+    var name = new Customer(name);
+    var address = new Address(address, city, state, parseInt(zip));
+    name.address.push(address);
   })
   function reset() {
-    $('input#name').val('');
-    $('input#address').val('');
-    $('input#city').val('');
-    $('input#state').val('');
-    $('input#zip').val('');
     $('#size').val('');
     $('#sauce').val('');
+    $("input:checkbox[name=toppings]").each(function(){
+      $(this).prop('checked', false);
+    });
   }
 
 
