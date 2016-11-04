@@ -1,3 +1,4 @@
+//================================== Object Constructors ============================================
 function Customer(name) {
 	this.name = name;
   this.address = [];
@@ -33,6 +34,7 @@ function Side(name, price){
   this.price = price;
 }
 
+//================================== Protoypes ============================================
 Customer.prototype.getTotal = function () {
   var orderTotal = 0;
   this.order.forEach(function(orderItem) {
@@ -70,6 +72,7 @@ Pizza.prototype.getPrice = function () {
   return total;
 };
 
+//================================== JQuery ============================================
 $(function(){
   var order = [];
   var guest = new Customer("");
@@ -123,22 +126,17 @@ $(function(){
     var cardType = $('#cardType').val();
     var cardNumber = $('#cardNumber').val();
     var securityNumber = parseInt($('#securityNumber').val());
-    // if(cardNumber.length !== 16) {
-    //   $('.cardNumberError').html("<em>Please make sure to enter 16 digits</em>");
-    // }
-    // else {
-      var newPayment = new Payment(cardName, cardType, cardNumber, securityNumber);
-      name.address.push(address);
-      name.payment.push(newPayment);
-      name.order = order;
-      if($("input:checkbox[name=secondAddress]:checked").val()) {
-        address = $('input#addressBilling').val();
-        city = $('input#cityBilling').val();
-        state = $('input#stateBilling').val();
-        zip = $('input#zipBilling').val();
-        var billingAddress = new Address(address, city, state, parseInt(zip));
-      }
-    // }
+    var newPayment = new Payment(cardName, cardType, cardNumber, securityNumber);
+    name.address.push(address);
+    name.payment.push(newPayment);
+    name.order = order;
+    if($("input:checkbox[name=secondAddress]:checked").val()) {
+      address = $('input#addressBilling').val();
+      city = $('input#cityBilling').val();
+      state = $('input#stateBilling').val();
+      zip = $('input#zipBilling').val();
+      var billingAddress = new Address(address, city, state, parseInt(zip));
+    }
     name.address.push(billingAddress);
     $('.customerName').text(name.name);
     $('.customerAddress').text(name.address[0].fullAddress());
@@ -161,6 +159,4 @@ $(function(){
     });
     $("input:checkbox[value=Cheese]").prop("checked", true);
   }
-
-
-})
+});

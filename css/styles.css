@@ -2,11 +2,11 @@ body {
   font-family: monospace;
   text-align: center;
   font-size: 16px;
+  padding: 10px;
 }
 
 h1, h2, h3 {
   color: #f7b705;
-  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
 em {
@@ -23,6 +23,7 @@ ul {
   border-bottom: 3px black solid;
   border-top: 3px black solid;
   color: #000;
+  line-height: 1.42;
 }
 
 header {
