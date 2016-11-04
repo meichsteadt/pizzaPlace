@@ -1,6 +1,6 @@
 # _ROA Pizza_
 
-_This application will take allow a user order a pizza_
+_This application will take allow a user to order a pizza_
 
 _**Matt Eichsteadt**_
 
