@@ -79,29 +79,29 @@
               <label for="zip">Zip Code</label>
               <input id="zip" class="form-control" type="text">
             </div>
-            <input id="secondAddress"type="checkbox" name="toppings" value="billing"><span class="check">Click here if billing address is different than delivery address</span><br>
+            <input id="secondAddress"type="checkbox" name="secondAddress" value="true"><span class="check">Click here if billing address is different than delivery address</span><br>
             <br>
             <div class="secondAddress">
               <h3>Billing Address</h3>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input id="name" class="form-control" type="text">
+                <input id="nameBilling" class="form-control" type="text">
               </div>
               <div class="form-group">
                 <label for="address">Address</label>
-                <input id="address" class="form-control" type="text">
+                <input id="addressBilling" class="form-control" type="text">
               </div>
               <div class="form-group">
                 <label for="city">City</label>
-                <input id="city" class="form-control" type="text">
+                <input id="citBilling" class="form-control" type="text">
               </div>
               <div class="form-group">
                 <label for="state">State</label>
-                <input id="state" class="form-control" type="text">
+                <input id="stateBilling" class="form-control" type="text">
               </div>
               <div class="form-group">
                 <label for="zip">Zip Code</label>
-                <input id="zip" class="form-control" type="text">
+                <input id="zipBilling" class="form-control" type="text">
               </div>
             </div>
             <h2 class="text-center">Payment Information</h2>
@@ -135,27 +135,30 @@
                 <p>what's this?</p>
               </div>
             </div>
+            <button id="checkoutButton" type="submit" class="btn btn-default" name="checkout">Checkout</button>
           </form>
         </div>
         <div class="col-md-4 col-md-offset-1">
-          <div id="displayOrder" class="well">
+          <div id="displayOrder" class="">
             <h3>Your Order</h3>
             <div class="underline"></div>
             <ul class="order" class="text-left"></ul>
             <div class="thin"></div>
             <p class="total"></p>
             <button id="next" type="button" class="btn btn-default" name="checkout">Next</button>
-            <button id="checkoutButton" type="button" class="btn btn-default" name="checkout">Checkout</button>
           </div>
         </div>
       </div>
       <div class="row">
         <div id="confirmation" class="col-md-8 col-md-offset-2">
           <h1>Thank you for choosing ROA Pizza</h1>
-          <h2>Your order has been placed and is being made right now by one of our organic, artisan chef's.</h2>
+          <h2>Your order has been placed and is being made right now by one of our organic, artisan chefs.</h2>
           <div class="well">
             <h3>Your Order</h3>
             <div class="underline"></div>
+            <p class="customerName"></p>
+            <p class="customerAddress"></p>
+            <p class="customerPayment"></p>
             <ul class="order" class="text-left"></ul>
             <div class="thin"></div>
             <p class="total"></p>

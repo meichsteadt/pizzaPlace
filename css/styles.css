@@ -3,6 +3,17 @@ body {
   text-align: center;
 }
 
+h2 {
+  color: #f7b705;
+}
+
+em {
+  color: #f7b705;
+}
+
+ul {
+  list-style: none;
+}
 .form-group {
   margin: 20px 0;
 }
@@ -12,13 +23,13 @@ body {
 }
 
 .underline {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #f7b705;
   width: 70%;
   margin: 10px auto;
 }
 
 #displayOrder {
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 #order {
@@ -38,6 +49,9 @@ body {
   margin-top: 50px;
 }
 
+#confirmation p {
+  font-size: 18px;
+}
 .thin {
   display: none;
   border-bottom: 1px solid black;

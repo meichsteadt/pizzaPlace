@@ -13,9 +13,9 @@ function Address(street, city, state, zip) {
   this.zip = zip
 }
 
-function Payment(cardHolder, type, cardNumber, securityNumber){
+function Payment(cardHolder, cardType, cardNumber, securityNumber){
 	this.cardHolder = cardHolder;
-  this.type = type;
+  this.cardType = cardType;
   this.cardNumber = cardNumber;
   this.securityNumber = securityNumber;
 }
@@ -41,6 +41,18 @@ Customer.prototype.getTotal = function () {
   this.total = orderTotal;
 };
 
+Address.prototype.fullAddress = function () {
+  return "" + this.street + ", " + this.city + ", " + this.state + " " + this.zip;
+};
+
+Payment.prototype.lastFour = function() {
+    var last = "";
+    for(var i = 4; i>0;i--) {
+      last+=this.cardNumber.charAt(this.cardNumber.length - i);
+    }
+    return last;
+}
+
 Pizza.prototype.getPrice = function () {
   var total = 0;
   if(this.size === "Small") {
@@ -62,10 +74,10 @@ Pizza.prototype.getPrice = function () {
 var luke = new Customer("Luke Keysboe");
 luke.address.push(new Address("1234 main st.", "Milwaukie", "OR", 97400));
 luke.order.push(new Pizza("medium", "regular", false));
-luke.payment.push(new Payment(luke.name, "Visa", 123456789011121314, 111));
+luke.payment.push(new Payment(luke.name, "Visa", "123456789011121314", 111));
 luke.order.push(new Side("breadsticks", 3));
 luke.getTotal();
-
+console.log(luke.payment[0].lastFour());
 
 $(function(){
   var order = [];
@@ -93,8 +105,8 @@ $(function(){
     if(toppings.length === 0) {
       toppingsString = ", plain"
     }
-    $('.order').append("<li>1x: $" + pizza.price + " " + pizza.size + toppingsString + " pizza with " +pizza.sauce + "</li>");
-    $('.total').text("Total: $" + guest.total);
+    $('.order').append("<li>1x: <em>$" + pizza.price + "</em> " + pizza.size + toppingsString + " pizza with " +pizza.sauce + "</li>");
+    $('.total').html("Total: <em>$" + guest.total + "</em>");
     $('#next').show();
     $('.thin').show();
     reset();
@@ -106,7 +118,8 @@ $(function(){
     $('#next').hide();
     console.log(guest);
   });
-  $('#checkoutButton').click(function() {
+  $('form#paymentInfo').submit(function(event) {
+    event.preventDefault();
     var name = $('input#name').val();
     var address = $('input#address').val();
     var city = $('input#city').val();
@@ -116,12 +129,23 @@ $(function(){
     var address = new Address(address, city, state, parseInt(zip));
     var cardName = $('#cardName').val();
     var cardType = $('#cardType').val();
-    var cardNumber = parseInt($('#cardNumber').val());
+    var cardNumber = $('#cardNumber').val();
     var securityNumber = parseInt($('#securityNumber').val());
     var newPayment = new Payment(cardName, cardType, cardNumber, securityNumber);
     name.address.push(address);
     name.payment.push(newPayment);
     name.order = order;
+    if($("input:checkbox[name=secondAddress]:checked").val()) {
+      address = $('input#addressBilling').val();
+      city = $('input#cityBilling').val();
+      state = $('input#stateBilling').val();
+      zip = $('input#zipBilling').val();
+      var billingAddress = new Address(address, city, state, parseInt(zip));
+    }
+    name.address.push(billingAddress);
+    $('.customerName').text(name.name);
+    $('.customerAddress').text(name.address[0].fullAddress());
+    $('.customerPayment').text("Payment: " + name.payment[0].cardType + " card ending in " + name.payment[0].lastFour());
     console.log(name);
     $('#confirmation').show();
     $('#paymentInfo').hide();
