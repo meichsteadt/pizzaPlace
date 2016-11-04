@@ -1,27 +1,25 @@
 # _Ping Pong_
 
-_This application will take an input from a user and then play a game of ping pong with it. (Displaying numbers up to said number with a little variation)_
+_This application will take allow a user order a pizza_
 
 _**Matt Eichsteadt**_
 
 ## Description
 
-_Play some ping pong! This application will take a number and display all numbers up until that number. On numbers divisible by 3 it will display 'ping'. On numbers divisible by 5 it will display 'pong'. On numbers divisible by both it will display 'ping pong'._
+_Are you in the mood for some delicious, readymade, organic, artisan pizza? Then you've come to the right place. This application will allow a user to go through the process of ordering a pizza.They can customize it as they see fit with different toppings (except pineapple) and the size. It will keep track of the users order, then prompt the user for delivery and billing information. Finally it will display the final order and total of said order. Amazing, right?_
 
 ## Specifications
 
-* It can count up to the provided number
-  * Example input: 4
-  * Example output: [1,2,3,4]
-* It displays 'ping' on numbers divisible by 3
-  * Example input: 3
-  * Example output: [1,2,"ping"]
-* It displays 'pong' on numbers divisible by 5
-  * Example input: 5
-  * Example output: [1,2,3,4,"pong"]
-* It displays 'ping pong' on numbers divisible by 3 & 5
-  * Example input: 15
-  * Example output: [1,2,"ping",4,"pong".... 13,14,"ping pong"]
+* It can take information from a user on how they like their pizza
+* It stores this information in an object
+  * Example input: "Medium Cheese, Bacon pizza "
+  * Example output: {size: "Medium", toppings: ["Cheese", "Bacon"]}
+* It adds multiple pizza objects in an order array
+  * Example input: Pizza1 {size: "Medium", toppings: ["Cheese", "Bacon"]}, Pizza2 {}, etc.
+  * Example output: orders= [Pizza1, Pizza2]
+* It displays user order and inputted user information to user
+  * Example input: Pizza1 {size: "Medium", toppings: ["Cheese", "Bacon"]}, John Smith, 1234 main st. Portland, OR
+  * Example output: Your Order: John Smith, 1234 main st. Portland, OR 1x Medium, Cheese, Bacon pizza.
 
 
 ## Setup/Installation Requirements
@@ -29,7 +27,7 @@ _Play some ping pong! This application will take a number and display all number
 _Clone the repository,_
 _open the index.html file,_
 _OR_
-_just visit [here](https://meichsteadt.github.io/pingPong)_
+_just visit [here](https://meichsteadt.github.io/pizzaPlace)_
 
 ## Known Bugs
 
