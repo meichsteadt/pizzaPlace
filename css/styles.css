@@ -95,6 +95,22 @@ header {
   font-size: 12px;
 }
 
+.step {
+  background: #f7b705;
+  color: #fff;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 26px;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  position: relative;
+  left:-5px;
+}
+
 .explain {
   display: none;
   width: 100px;
