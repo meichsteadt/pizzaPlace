@@ -1,4 +1,4 @@
-# _Ping Pong_
+# _ROA Pizza_
 
 _This application will take allow a user order a pizza_
 
@@ -12,7 +12,7 @@ _Are you in the mood for some delicious, readymade, organic, artisan pizza? Then
 
 * It can take information from a user on how they like their pizza
 * It stores this information in an object
-  * Example input: "Medium Cheese, Bacon pizza "
+  * Example input: "Medium Cheese, Bacon pizza"
   * Example output: {size: "Medium", toppings: ["Cheese", "Bacon"]}
 * It adds multiple pizza objects in an order array
   * Example input: Pizza1 {size: "Medium", toppings: ["Cheese", "Bacon"]}, Pizza2 {}, etc.
