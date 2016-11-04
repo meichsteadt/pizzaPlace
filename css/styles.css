@@ -20,3 +20,58 @@ body {
 #displayOrder {
   margin-top: 20px;
 }
+
+#order {
+  margin-left: 20px;
+}
+
+#confirmation ul {
+  list-style: none;
+  font-size: 24px;
+}
+
+#confirmation .total {
+  font-size: 32px;
+}
+
+#confirmation .well {
+  margin-top: 50px;
+}
+
+.thin {
+  display: none;
+  border-bottom: 1px solid black;
+  width: 50%;
+  margin: 20px auto 0  auto;
+}
+
+#paymentInfo, #checkoutButton, .secondAddress, #next, #confirmation {
+  display: none;
+}
+
+.what {
+  font-size: 12px;
+}
+
+.explain {
+  display: none;
+  width: 100px;
+  position: absolute;
+  margin-top: -124px;
+}
+
+.explain::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #e3e3e3 transparent transparent transparent;
+}
+
+.what>p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

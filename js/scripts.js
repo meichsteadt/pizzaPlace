@@ -18,7 +18,6 @@ function Payment(cardHolder, type, cardNumber, securityNumber){
   this.type = type;
   this.cardNumber = cardNumber;
   this.securityNumber = securityNumber;
-  this.preferredPayment = false;
 }
 
 function Pizza(size, toppings, sauce, extra) {
@@ -42,19 +41,15 @@ Customer.prototype.getTotal = function () {
   this.total = orderTotal;
 };
 
-// Pizza.prototype.addToppings = function (topping) {
-//   this.toppings = topping;
-// };
-
 Pizza.prototype.getPrice = function () {
   var total = 0;
-  if(this.size === "small") {
+  if(this.size === "Small") {
     total+= 10;
   }
-  else if(this.size === "medium") {
+  else if(this.size === "Medium") {
     total+= 12;
   }
-  else if(this.size === "large") {
+  else if(this.size === "Large") {
     total+= 14;
   }
   if(this.extra) {
@@ -74,11 +69,13 @@ luke.getTotal();
 
 $(function(){
   var order = [];
-  $('form').submit(function(event){
+  var guest = new Customer("");
+  $('form#orderForm').submit(function(event){
     event.preventDefault();
     var size = $('#size').val();
     var sauce = $('#sauce').val();
     var toppings = [];
+    var toppingsString = "";
     var extra = false;
     $("input:checkbox[name=toppings]:checked").each(function(){
       toppings.push($(this).val());
@@ -86,13 +83,30 @@ $(function(){
     if(toppings.length > 3) {
       extra = true;
     }
-    order.push(new Pizza(size, toppings, sauce, extra));
-    console.log(order);
+    toppings.forEach(function(topping) {
+      toppingsString += ", " +topping;
+    })
+    var pizza = new Pizza(size, toppings, sauce, extra);
+    order.push(pizza);
+    guest.order.push(pizza);
+    guest.getTotal();
+    if(toppings.length === 0) {
+      toppingsString = ", plain"
+    }
+    $('.order').append("<li>1x: $" + pizza.price + " " + pizza.size + toppingsString + " pizza with " +pizza.sauce + "</li>");
+    $('.total').text("Total: $" + guest.total);
+    $('#next').show();
+    $('.thin').show();
     reset();
   })
+  $('#next').click(function() {
+    $('#orderForm').hide();
+    $('#paymentInfo').show();
+    $('#checkoutButton').show();
+    $('#next').hide();
+    console.log(guest);
+  });
   $('#checkoutButton').click(function() {
-    $('form').hide();
-    $('#checkout').show();
     var name = $('input#name').val();
     var address = $('input#address').val();
     var city = $('input#city').val();
@@ -100,14 +114,32 @@ $(function(){
     var zip = $('input#zip').val();
     var name = new Customer(name);
     var address = new Address(address, city, state, parseInt(zip));
+    var cardName = $('#cardName').val();
+    var cardType = $('#cardType').val();
+    var cardNumber = parseInt($('#cardNumber').val());
+    var securityNumber = parseInt($('#securityNumber').val());
+    var newPayment = new Payment(cardName, cardType, cardNumber, securityNumber);
     name.address.push(address);
+    name.payment.push(newPayment);
+    name.order = order;
+    console.log(name);
+    $('#confirmation').show();
+    $('#paymentInfo').hide();
+    $('#displayOrder').hide();
+  });
+  $('.what').click(function(){
+    $('.explain').toggle();
+  })
+  $('#secondAddress').click(function() {
+    $('.secondAddress').slideToggle();
   })
   function reset() {
-    $('#size').val('');
-    $('#sauce').val('');
+    $('#size option[value="Small"]').prop("selected",true);
+    $('#sauce option[value="Marinara"]').prop("selected",true);
     $("input:checkbox[name=toppings]").each(function(){
       $(this).prop('checked', false);
     });
+    $("input:checkbox[value=Cheese]").prop("checked", true);
   }
 
 
